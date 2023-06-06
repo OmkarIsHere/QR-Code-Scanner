@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".QRscannerActivity">
+
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:id="@+id/qrCodeScannerView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_400sdp"
+        app:flashButtonColor="@color/white"
+        app:flashButtonVisible="true"
+        app:autoFocusButtonVisible="false"/>
+
+    <TextView
+        android:id="@+id/txtViewEncode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:textColor="@color/black"
+        android:padding="@dimen/_5sdp"
+        android:textSize="@dimen/_20ssp"
+        android:text="Hello World!"/>
+
+
+
+
+</LinearLayout>
