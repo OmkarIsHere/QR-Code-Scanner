@@ -13,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,12 +41,20 @@ public class QRscannerActivity extends AppCompatActivity {
         codeScannerView= findViewById(R.id.qrCodeScannerView);
         qrEncode= findViewById(R.id.txtViewEncode);
 
-        int PERMISSION_ALL=1;
+        final int PERMISSION_ALL = 1;
         String[] permissions = { android.Manifest.permission.CAMERA };
-        if(hasPermissions(this, permissions))
-            runCodeScanner();
-        else
-            ActivityCompat.requestPermissions(this , permissions, PERMISSION_ALL);
+        Log.d(TAG, "onCreate: permission ");
+        try {
+            if(hasPermissions(this, permissions)) {
+                Log.d(TAG, "before runCode Method ");
+                runCodeScanner();
+                Log.d(TAG, "after runCodeMethod: ");
+            }else
+                ActivityCompat.requestPermissions(this , permissions, PERMISSION_ALL);
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, e.toString());
+        }
 
     }
 
@@ -59,7 +68,7 @@ public class QRscannerActivity extends AppCompatActivity {
         return true;
     }
     private void runCodeScanner() {
-        codeScanner = new CodeScanner(this, codeScannerView);
+        codeScanner = new CodeScanner(QRscannerActivity.this, codeScannerView);
         codeScanner.setAutoFocusEnabled(true);
         codeScanner.setFormats(CodeScanner.ALL_FORMATS);
         codeScanner.setScanMode(ScanMode.CONTINUOUS);

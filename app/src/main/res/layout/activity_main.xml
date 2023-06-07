@@ -24,6 +24,7 @@
         android:layout_height="@dimen/_100sdp"
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
+        android:contentDescription="@string/app_name"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/ic_camera_viewfinder"/>
 
@@ -36,7 +37,6 @@
         android:textColor="@color/black"
         android:layout_marginTop="@dimen/_100sdp"
         android:padding="@dimen/_5sdp"
-        android:textSize="@dimen/_20ssp"
-        android:text="Hello World!"/>
+        android:textSize="@dimen/_20ssp"/>
 
 </LinearLayout>
