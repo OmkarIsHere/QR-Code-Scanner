@@ -30,9 +30,9 @@ import com.google.zxing.Result;
 
 public class QRscannerActivity extends AppCompatActivity {
     private static final String TAG = "QRscannerActivity";
-    CodeScannerView codeScannerView;
-    CodeScanner codeScanner;
-    TextView qrEncode;
+    private CodeScannerView codeScannerView;
+    private CodeScanner codeScanner;
+    private TextView qrEncode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,7 @@ public class QRscannerActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this , permissions, PERMISSION_ALL);
         }catch (Exception e){
             e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Developer is solving virtual null pointer error. Stay tune...", Toast.LENGTH_SHORT).show();
             Log.d(TAG, e.toString());
         }
 
